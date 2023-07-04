@@ -1,9 +1,9 @@
-const passwordLength = document.getElementById("password-length");
-const symbols = document.getElementById("symbols");
-const numbers = document.getElementById("numbers");
-const lowercaseCharacters = document.getElementById("lowercase");
-const uppercaseCharacters = document.getElementById("uppercase");
-const generatePasswordButton = document.getElementById("generate-password");
+const passwordLengthSelector = document.getElementById("password-length-selector");
+const symbolsCheckbox = document.getElementById("symbols-checkbox");
+const numbersCheckbox = document.getElementById("numbers-checkbox");
+const lowercaseCharactersCheckbox = document.getElementById("lowercase-checkbox");
+const uppercaseCharactersCheckbox = document.getElementById("uppercase-checkbox");
+const generatePasswordButton = document.getElementById("generate-password-button");
 const generatedPasswordField = document.getElementById("generated-password-field");
 const copyButton = document.getElementById("copy-button");
 
@@ -12,29 +12,43 @@ const numberPool = "0123456789";
 const lowercaseCharacterPool = "abcdefghijklmnopqrstuvwxyz";
 const uppercaseCharacterPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-generatePasswordButton.addEventListener("click", generatePassword);
-copyButton.addEventListener("click", copy);
+generatePasswordButton.addEventListener("click", generatePasswordButtonListener);
+copyButton.addEventListener("click", copyButtonListener);
 
-function generatePassword() {
+function generatePasswordButtonListener() {
+    const passwordLength = parseInt(passwordLengthSelector.options[passwordLengthSelector.selectedIndex].text, 10);
     const options = {
-        length: parseInt(passwordLength.options[passwordLength.selectedIndex].text, 10),
-        symbol: symbols.checked,
-        number: numbers.checked,
-        lowercase: lowercaseCharacters.checked,
-        uppercase: uppercaseCharacters.checked
+        symbol: symbolsCheckbox.checked,
+        number: numbersCheckbox.checked,
+        lowercase: lowercaseCharactersCheckbox.checked,
+        uppercase: uppercaseCharactersCheckbox.checked
     };
-
+    if (!options.symbol && !options.number && !options.lowercase && !options.uppercase) {
+        console.log("no options")
+        return;
+    }
+    const password = generatePassword(passwordLength, options);
     generatedPasswordField.textContent = "";
+    generatedPasswordField.insertAdjacentText("beforeend", password);
+}
 
+function copyButtonListener() {
+    navigator.clipboard.writeText(generatedPasswordField.textContent).then(
+        () => console.log("text copied")
+    ).catch(
+        () => console.log("failed to copy text")
+    );
+}
+
+function generatePassword(passwordLength, options) {
     const passwordPool = passwordPoolCreator(options);
     let password = "";
 
-    for (let i = 0; i < options.length; i++) {
+    for (let i = 0; i < passwordLength; i++) {
         let randomNumber = Math.floor(Math.random() * passwordPool.length);
         password += passwordPool.substring(randomNumber, randomNumber + 1)
     }
-
-    generatedPasswordField.insertAdjacentText("beforeend", password);
+    return password;
 }
 
 function passwordPoolCreator(options) {
@@ -56,15 +70,4 @@ function passwordPoolCreator(options) {
         pool += uppercaseCharacterPool;
     }
     return pool;
-}
-
-function copy() {
-    const copyText = async () => {
-        try {
-            await navigator.clipboard.writeText(generatedPasswordField.textContent);
-            console.log("text copied");
-        } catch (err) {
-            console.log("failed to copy text");
-        }
-    }
 }

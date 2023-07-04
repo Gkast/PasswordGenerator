@@ -8,44 +8,49 @@
 <body>
 <div class="container">
     <div class="criteria-container">
-        <label for="password-length">Password Length</label>
-        <select name="password-length" id="password-length">
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-        </select>
+        <label>Password Length:
+            <select name="password-length" id="password-length-selector">
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+            </select>
+        </label>
 
-        <label for="symbols">Include Symbols:</label>
-        <input type="checkbox" name="symbols" id="symbols">
-        <label for="symbols">(e.g. @#$%)</label>
+        <label>Include Symbols:
+            <input type="checkbox" name="symbols" id="symbols-checkbox">
+            <label for="symbols-checkbox">(e.g. @#$%)</label>
+        </label>
 
-        <label for="numbers">Include Numbers:</label>
-        <input type="checkbox" name="numbers" id="numbers">
-        <label for="numbers">(e.g. 123456)</label>
+        <label>Include Numbers:
+            <input type="checkbox" name="numbers" id="numbers-checkbox">
+            <label for="numbers-checkbox">(e.g. 123456)</label>
+        </label>
 
-        <label for="lowercase">Include Lowercase Characters:</label>
-        <input type="checkbox" name="lowercase" id="lowercase">
-        <label for="lowercase">(e.g. abcdefgh)</label>
+        <label>Include Lowercase Characters:
+            <input type="checkbox" name="lowercase" id="lowercase-checkbox">
+            <label for="lowercase-checkbox">(e.g. abcdefgh)</label>
+        </label>
 
-        <label for="uppercase">Include Uppercase Characters:</label>
-        <input type="checkbox" name="uppercase" id="uppercase">
-        <label for="uppercase">(e.g. ABCDEFGH)</label>
+        <label>Include Uppercase Characters:
+            <input type="checkbox" name="uppercase" id="uppercase-checkbox">
+            <label for="uppercase-checkbox">(e.g. ABCDEFGH)</label>
+        </label>
 
-        <button type="button" id="generate-password">Generate Password</button>
+        <button type="button" id="generate-password-button">Generate Password</button>
     </div>
     <div class="generated-password-container">
         <span>Generated Password:</span>

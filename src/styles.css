@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkgray;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 30px;
+    background-color: navajowhite;
+}
+
+.criteria-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#generated-password-field {
+    display: inline-block;
+    width: 250px;
+    background-color: seagreen;
+    padding: 10px 20px;
+    text-align: center;
+    margin: 0 15px 0 15px;
+}
+
+#generate-password-button{
+    width: 150px;
+
+}
+
+#copy-button {
+    padding: 5px 15px;
+}
