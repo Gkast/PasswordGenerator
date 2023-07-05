@@ -10,6 +10,8 @@
     <div class="criteria-container">
         <label>Password Length:
             <select name="password-length" id="password-length-selector">
+                <option value="8">6</option>
+                <option value="8">7</option>
                 <option value="8">8</option>
                 <option value="9">9</option>
                 <option value="10">10</option>
@@ -35,6 +37,7 @@
             <label for="symbols-checkbox">(e.g. @#$%)</label>
         </label>
 
+
         <label>Include Numbers:
             <input type="checkbox" name="numbers" id="numbers-checkbox">
             <label for="numbers-checkbox">(e.g. 123456)</label>
@@ -50,12 +53,15 @@
             <label for="uppercase-checkbox">(e.g. ABCDEFGH)</label>
         </label>
 
-        <button type="button" id="generate-password-button">Generate Password</button>
+        <div class="button-container">
+            <button type="button" id="generate-password-button">Generate Password</button>
+            <button type="button" id="clear-button">Clear</button>
+            <button type="button" id="copy-button">Copy</button>
+        </div>
     </div>
     <div class="generated-password-container">
         <span>Generated Password:</span>
         <div id="generated-password-field"></div>
-        <button type="button" id="copy-button">Copy</button>
     </div>
 </div>
 <script src="script.js"></script>

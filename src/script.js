@@ -4,8 +4,9 @@ const numbersCheckbox = document.getElementById("numbers-checkbox");
 const lowercaseCharactersCheckbox = document.getElementById("lowercase-checkbox");
 const uppercaseCharactersCheckbox = document.getElementById("uppercase-checkbox");
 const generatePasswordButton = document.getElementById("generate-password-button");
-const generatedPasswordField = document.getElementById("generated-password-field");
+const clearButton = document.getElementById("clear-button");
 const copyButton = document.getElementById("copy-button");
+const generatedPasswordField = document.getElementById("generated-password-field");
 
 const symbolPool = "!@#$%^&*()";
 const numberPool = "0123456789";
@@ -13,6 +14,7 @@ const lowercaseCharacterPool = "abcdefghijklmnopqrstuvwxyz";
 const uppercaseCharacterPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 generatePasswordButton.addEventListener("click", generatePasswordButtonListener);
+clearButton.addEventListener("click", clearButtonListener);
 copyButton.addEventListener("click", copyButtonListener);
 
 function generatePasswordButtonListener() {
@@ -30,6 +32,10 @@ function generatePasswordButtonListener() {
     const password = generatePassword(passwordLength, options);
     generatedPasswordField.textContent = "";
     generatedPasswordField.insertAdjacentText("beforeend", password);
+}
+
+function clearButtonListener() {
+    generatedPasswordField.textContent = "";
 }
 
 function copyButtonListener() {
