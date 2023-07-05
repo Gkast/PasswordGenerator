@@ -26,7 +26,7 @@ function generatePasswordButtonListener() {
         uppercase: uppercaseCharactersCheckbox.checked
     };
     if (!options.symbol && !options.number && !options.lowercase && !options.uppercase) {
-        console.log("no options")
+        generatedPasswordField.textContent = "You didn't include anything"
         return;
     }
     const password = generatePassword(passwordLength, options);
